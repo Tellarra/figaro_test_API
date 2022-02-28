@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Bienvenue à la page des alertes {% endblock %}</h1>
+    <table id="data" class="table table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nom de l'alerte</th>
+            <th>Date de création</th>
+            <th>Prix minimum</th>
+            <th>Prix maximum</th>
+            <th>Ville</th>
+            <th>Id de l'utilistateur</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for alert in alerts %}
+            <tr>
+                <td>{{ alert.id_alert}}</td>
+                <td>{{ alert.name_alert }}</td>
+                <td>{{ alert.creation_date }}</td>
+                <td>{{ alert.price_min }}</td>
+                <td>{{ alert.price_max }}</td>
+                <td>{{ alert.city }}</td>
+                <td>{{ alert.account_id }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+{% endblock %}
+

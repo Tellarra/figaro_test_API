@@ -9,10 +9,12 @@ from figaro_api.db import db
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/')
-def home() :
-    return render_template('index.html')
-
+#@app.route('/')
+""" def index() :
+    alerts = alert.AlertList.get(alert)
+    print(type(alerts))
+    return render_template('index.html', title="All the alerts", alerts=alerts)
+ """
 # Setup the URI
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///test_api.db"  # The db is a the root
 app.config["SQLALCHEMY_TRACK_MODIFICATION"] = False

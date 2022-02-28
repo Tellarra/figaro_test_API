@@ -54,7 +54,6 @@ class AlertList(Resource):
 
     def get(self):
         # We get all the items
-        # return {'item' : list(map(lambda x: x.json(), ItemModel.query.all()))} --> Only if not all python
         return {"alerts": [alert.json() for alert in alert_model.AlertModel.query.all()]}
 
     def post(self):
