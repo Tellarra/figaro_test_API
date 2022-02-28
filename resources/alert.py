@@ -18,10 +18,10 @@ class Alert(Resource):
         "city", type=str, required=True, help="Every alert needs a city location"
     )
     parser.add_argument(
-        "price_min", type=float, required=True, help="Every alert needs a minimum price"
+        "price_min", type=float, required=False
     )
     parser.add_argument(
-        "price_max", type=float, required=True, help="Every alert needs a maximum price"
+        "price_max", type=float, required=False
     )
     parser.add_argument(
         "account_id", type=int, required=True, help="Every alert needs an account id"
@@ -62,6 +62,12 @@ class AlertList(Resource):
         data = Alert.parser.parse_args()
 
         alert = alert_model.AlertModel(**data)
+
+        if alert.price_min and alert.price_max :
+            if alert.price_min > alert.price_max  :
+                return {
+                    "message": "The minimum price must be lower than the maximum price."
+                }
 
         try:
             alert.save_to_db()
