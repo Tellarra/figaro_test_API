@@ -50,3 +50,12 @@ Tester dans body pour l'action GET /alerts, il suffit de clicker sur SEND pour e
 J'aurais ajouté une authentification via JWT pour que le champs "username" n'est plus à être remplis manuellement lors de la création des alertes. 
 
 J'aurais fais une interface.
+
+## Features en plus
+J'ai choisis d'implémenter à la place du login, une création d'utilisateur directement via la requête avec POST.
+Il suffit d'entrer un utilisateur comme ci-dessous :
+
+{
+   "username" : "Marie1",
+   "password" : "password1"
+}
