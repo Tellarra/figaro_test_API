@@ -6,7 +6,6 @@ class Alert(Resource):
     """
     This class can :
     - Get an alert which is in the database
-    - Delete an alert
     """
 
     # Implement a decorator
@@ -50,12 +49,10 @@ class AlertList(Resource):
                     "message": "The minimum price must be lower than the maximum price."
                 }
 
-        try :
-            alert = int(alert.city)
-        except :
-            return {
+        for character in alert.city:
+            if character.isdigit():
+                return {
                     "message": "The city name is not valid."
-                }
 
         if not account_model.AccountModel.find_by_username(alert.username) :
             return {
