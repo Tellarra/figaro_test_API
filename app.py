@@ -33,6 +33,6 @@ api.add_resource(account.AccountList, "/accounts")
 api.add_resource(alert.AlertList, "/alerts")
 
 # This will have the GET and POST
-api.add_resource(account.Account, "/accounts/<string:_id>")
+#api.add_resource(account.Account, "/accounts/<string:_id>")
 #api.add_resource(unit.Unit, "/units/<string:_id>")
 #api.add_resource(mall.Mall, "/malls/<string:_id>")
