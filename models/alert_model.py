@@ -17,17 +17,17 @@ class AlertModel(db.Model):
     city = db.Column(db.String(80))
 
     # Setting up the foreign key
-    account_id = db.Column(db.Integer, db.ForeignKey("account.id_account"))
+    username = db.Column(db.Integer, db.ForeignKey("account.username"))
     account = db.relationship(
         "AccountModel", backref=backref("alert", cascade="all, delete")
     )
 
-    def __init__(self, name_alert,price_min, price_max, city, account_id):
+    def __init__(self, name_alert,price_min, price_max, city, username):
         self.name_alert = name_alert
         self.price_min = price_min
         self.price_max = price_max
         self.city = city
-        self.account_id = account_id
+        self.username = username
 
     def json(self):
         """
@@ -39,7 +39,7 @@ class AlertModel(db.Model):
             "price_min": self.price_min,
             "price_max": self.price_max,
             "city": self.city,
-            "account_id": self.account_id,
+            "username": self.username,
         }
 
     @classmethod
