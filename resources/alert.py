@@ -51,7 +51,7 @@ class AlertList(Resource):
                 }
 
         try :
-            int(alert.city) :
+            alert = int(alert.city)
         except :
             return {
                     "message": "The city name is not valid."
