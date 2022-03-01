@@ -12,7 +12,7 @@ from db import db
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/alerts')
+@app.route('/')
 def index() :
     #alerts = alert.AlertList.get(alert)
     #print(type(alerts))
