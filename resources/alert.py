@@ -24,26 +24,8 @@ class Alert(Resource):
         "price_max", type=float, required=False
     )
     parser.add_argument(
-        "account_id", type=int, required=True, help="Every alert needs an account id"
+        "username", type=int, required=True, help="Every alert needs a username"
     )
-
-    def get(self, _id):
-        alert = alert_model.AlertModel.find_by_id(_id)
-
-        if alert:
-            return alert.json()
-        return {"message": "Alert not found"}, 404
-
-    def delete(self, _id):
-        """
-        This method delete an alert
-        """
-        alert = alert_model.AlertModel.find_by_id(_id)
-
-        if alert:
-            alert.delete_from_db()
-
-        return {"message": "Alert deleted"}
 
 class AlertList(Resource):
     """
@@ -67,6 +49,16 @@ class AlertList(Resource):
                 return {
                     "message": "The minimum price must be lower than the maximum price."
                 }
+
+        if int(alert.city) :
+            return {
+                "message": "The city name is not valid."
+            }
+
+        if not account_model.AccountModel.find_by_username(alert.username) :
+            return {
+                "message": "The username you entered doesn't exist."
+            }
 
         try:
             alert.save_to_db()

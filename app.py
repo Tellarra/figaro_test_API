@@ -12,12 +12,6 @@ from db import db
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/')
-def index() :
-    #alerts = alert.AlertList.get(alert)
-    #print(type(alerts))
-    return render_template('alerts.html', title="All the alerts")
-
 # Setup the URI
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///test_api.db"  # The db is a the root
 app.config["SQLALCHEMY_TRACK_MODIFICATION"] = False
@@ -32,10 +26,4 @@ def create_tables():
 # Add our enpoints
 # This will have the GET and POST
 api.add_resource(account.AccountList, "/accounts")
-#api.add_resource(unit.UnitList, "/units")
 api.add_resource(alert.AlertList, "/alerts")
-
-# This will have the GET and POST
-#api.add_resource(account.Account, "/accounts/<string:_id>")
-#api.add_resource(unit.Unit, "/units/<string:_id>")
-#api.add_resource(mall.Mall, "/malls/<string:_id>")

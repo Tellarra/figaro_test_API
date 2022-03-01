@@ -20,3 +20,31 @@ Une alerte immobilière est constituée des informations suivantes :
 | Un prix minimum | Non  |
 | Un prix maximum  | Non  |
 | Une ville  | Oui  |
+
+## Pour tester l'API
+### Création d'une alerte
+Il suffit de démarrer POSTMAN et de tester dans body pour l'action POST /alerts :
+
+    {
+    "name_alert" : "Maison 1",
+    "city" : "Paris",
+    "price_min" : 300000.0,
+    "price_max" : 400000.0,
+    "account_id" : 1
+    }
+
+    {
+    "name_alert" : "Maison 2",
+    "city" : "Melbourne",
+    "price_min" : 600000.0,
+    "price_max" : 700000.0,
+    "account_id" : 2
+    }
+
+### Lister les alertes
+Tester dans body pour l'action GET /alerts, il suffit de clicker sur SEND pour envoyer la requête et avoir la liste des alertes associées à un compte utilisateur.
+
+## Si je voulais prendre plus de temps
+J'aurais ajouté une authentification via JWT pour que le champs "username" n'est plus à être remplis manuellement lors de la création des alertes. 
+
+J'aurais fais une interface.
