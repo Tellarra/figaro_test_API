@@ -23,7 +23,9 @@ Une alerte immobilière est constituée des informations suivantes :
 
 ## Pour tester l'API
 ### Création d'une alerte
-Il suffit de démarrer POSTMAN et de tester dans body pour l'action POST /alerts :
+Dans POSTMAN il faut créer un nouvel environnement avec l'adresse url suivante : https://figaro-test-api.herokuapp.com
+
+Il suffit ensuite de tester dans body pour l'action POST /alerts :
 
     {
     "name_alert" : "Maison 1",

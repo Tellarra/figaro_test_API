@@ -24,7 +24,7 @@ class Alert(Resource):
         "price_max", type=float, required=False
     )
     parser.add_argument(
-        "username", type=int, required=True, help="Every alert needs a username"
+        "username", type=str, required=True, help="Every alert needs a username"
     )
 
 class AlertList(Resource):
