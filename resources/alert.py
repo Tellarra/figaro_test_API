@@ -1,5 +1,5 @@
 from flask_restful import Resource, reqparse
-from models import alert_model
+from models import alert_model, account_model
 
 
 class Alert(Resource):
@@ -53,6 +53,7 @@ class AlertList(Resource):
             if character.isdigit():
                 return {
                     "message": "The city name is not valid."
+                }
 
         if not account_model.AccountModel.find_by_username(alert.username) :
             return {
