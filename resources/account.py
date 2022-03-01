@@ -1,5 +1,5 @@
 from flask_restful import Resource, reqparse
-from figaro_api.models import account_model
+from models import account_model
 
 
 class Account(Resource):

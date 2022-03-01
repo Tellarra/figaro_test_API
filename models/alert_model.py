@@ -1,5 +1,5 @@
 from sqlalchemy.orm import backref
-from figaro_api.db import db
+from db import db
 
 
 class AlertModel(db.Model):

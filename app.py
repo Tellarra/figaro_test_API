@@ -1,9 +1,12 @@
 from flask import Flask, render_template
 from flask_restful import Api
 from flask_cors import CORS
-from figaro_api.resources import account
-from figaro_api.resources import alert
-from figaro_api.db import db
+#from figaro_api.resources import account
+#from figaro_api.resources import alert
+#from figaro_api.db import db
+from resources import account
+from resources import alert
+from db import db
 
 # This is our app
 app = Flask(__name__)

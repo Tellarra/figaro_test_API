@@ -1,4 +1,4 @@
-from figaro_api.db import db
+from db import db
 
 
 class AccountModel(db.Model):

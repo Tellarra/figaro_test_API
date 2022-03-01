@@ -1,5 +1,5 @@
 from flask_restful import Resource, reqparse
-from figaro_api.models import alert_model
+from models import alert_model
 
 
 class Alert(Resource):
