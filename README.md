@@ -46,6 +46,41 @@ Il suffit ensuite de tester dans body pour l'action POST /alerts :
 ### Lister les alertes
 Tester dans body pour l'action GET /alerts, il suffit de clicker sur SEND pour envoyer la requête et avoir la liste des alertes associées à un compte utilisateur.
 
+### Tester l'API
+Pour tester un peu plus l'API, vous pouvez essayer dans POST alerts :
+
+    {
+        "name_alert" : "Maison 3",
+        "city" : 3,
+        "price_min" : 300000.0,
+        "price_max" : 400000.0,
+        "username" : "Marie1"
+    }
+
+    --> Cela va retourner un message d'erreur pour la ville.
+
+    {
+        "name_alert" : "Maison 3",
+        "city" : "Melbourne",
+        "price_min" : 500000.0,
+        "price_max" : 300000.0,
+        "username" : "Marie1"
+    }
+
+    --> Cela va retourner un message d'erreur pour le prix minimum qui est plus grand que le maximum.
+
+    {
+        "name_alert" : "Maison 3",
+        "city" : "Melbourne",
+        "price_min" : null,
+        "price_max" : null,
+        "username" : "Marie1"
+    }
+
+    --> Cela ne va pas retourner d'erreur.
+
+    Si le 'username" n'est pas dans la base de données, il y aura également un message d'erreur.
+
 ## Si je voulais prendre plus de temps
 J'aurais :
 - Ajouté une authentification via JWT pour que le champ "username" n'est plus à être remplis manuellement lors de la création des alertes. 
