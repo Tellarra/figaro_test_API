@@ -50,10 +50,12 @@ class AlertList(Resource):
                     "message": "The minimum price must be lower than the maximum price."
                 }
 
-        if int(alert.city) :
+        try :
+            int(alert.city) :
+        except :
             return {
-                "message": "The city name is not valid."
-            }
+                    "message": "The city name is not valid."
+                }
 
         if not account_model.AccountModel.find_by_username(alert.username) :
             return {
